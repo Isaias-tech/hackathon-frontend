@@ -1,0 +1,20 @@
+name: Deploy application
+on:
+  push:
+    branches:
+    - main
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy frontend app
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: sh ~/hackathon-frontend/deploy.sh
+            
