@@ -16,5 +16,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: sh ~/hackathon-frontend/deploy.sh
+        script: sh /home/isaias-tech/hackathon-frontend/deploy.sh
             
