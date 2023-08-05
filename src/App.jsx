@@ -1,10 +1,12 @@
 import './App.css'
-import LoginPage from './components/LandinPage'
+import {Dashboard} from './components/pages/UserDashboardPage'
 
 export default function App(){
   return (
     <main>
-      <LoginPage />
+      {/* <LoginPage /> */}
+      
+      <Dashboard />
     </main>
   )
 }

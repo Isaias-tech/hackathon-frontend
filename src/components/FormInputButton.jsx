@@ -1,6 +1,5 @@
 export default function FormInputButton ({children}) {
     return(
-        
-        <button type="button" className="button-input">{children}</button>
+        <input type="submit" className="button-input" value={children} />
     )
 }

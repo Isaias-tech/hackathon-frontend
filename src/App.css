@@ -9,8 +9,7 @@ html{
 }
 
 body{
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -28,6 +27,7 @@ img{
   display: flex;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 .home-image img{
@@ -85,4 +85,149 @@ input{
 
 .login-title span{
   color: #00a0af;
+}
+
+
+/* User dashboard*/
+
+.navbar {
+  width: 100%;
+  padding-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.navbar-title{
+  display: flex;
+  width: 50%;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-logo{
+  width: 30%;
+}
+
+.nav-logo img{
+  width: 100%;
+}
+
+.dashboard-title{
+  font-size: 2rem;
+}
+
+.navbar-navigation{
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.navbar-link{
+  font-style: none;
+  text-decoration: none;
+  color: #FF9100;
+}
+
+.special-link{
+  background-color: #FF9100;
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 8px;
+}
+
+.special-link:hover{
+  border: 1px solid #FF9100;
+  background-color: #fff;
+  color: #FF9100;
+}
+
+.user-dashboard{
+  padding-inline: 5rem;
+}
+
+.order-container{
+  display: flex;
+  min-height: 100vh;
+  font-size: 3rem;
+  gap: 2rem;
+}
+
+.budget-column{
+  width: 25%;
+  line-height: 6rem;
+}
+
+.budget-column span{
+  color: #FF9100;
+}
+
+.new-order-column{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 3rem;
+  width: 75%;
+}
+
+.new-order-column h1{
+  padding-left: 3rem;
+}
+
+.budget-container{
+  text-align: center;
+  padding: 2rem;
+  border-bottom: 2px solid #FF9100;
+}
+
+.budget-container h4{
+  color: #00000092;
+}
+
+.menu-order-container{
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #000;
+  gap: 2rem;
+}
+
+.restaurant-menu{
+  width: 70%;
+  background-color: #00a0af;
+  height: 100vh;
+  padding: 3rem;
+}
+
+.order-place-selector{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.order-place-selector select{
+  padding: 1rem 3rem;
+  line-height: 4rem;
+}
+
+.restaurant-order{
+  width: 30%;
+  background-color: #FF9100;
+}
+
+.orders-in-process{
+  border-left: 1rem solid #FF9100;
+  padding-left: 2rem;
+  padding-block: 3rem;
+}
+
+.orders-in-process li{
+  list-style: none;
+}
+
+.order-in-process-item{
+  border-block: 1px solid #00a0af;
+  padding-left: 1rem; 
 }
