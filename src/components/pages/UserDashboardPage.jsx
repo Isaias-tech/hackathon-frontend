@@ -1,42 +1,29 @@
 import { NavBar } from "../NavBar"
 import { useState } from "react"
 
-const orderInProcess = [{
-        name: "Today's dish",
-        status: "In Process"
-    },
-    {
-        name: "Today's dish",
-        status: "Done"
-    },
-    {
-        name: "Today's dish",
-        status: "In Process"
-    }]
-
 const menuItems = [
     {   
-        id: 123,
+        id: '123-keySomething',
         name: 'Arroz Habichuela y Carne',
         price: 200
     },
     {   
-        id: 234,
+        id: '234-keySomething',
         name: 'Moro rojo con pollo horneado',
         price: 200
     },
     {   
-        id: 345,
+        id: '345-keySomething',
         name: 'Fritos con salami',
         price: 200
     },
     {   
-        id: 456,
+        id: '456-keySomething',
         name: 'Dish one with soda',
         price: 200
     },
     {   
-        id: 567,
+        id: '567-keySomething',
         name: 'Dish two with soda',
         price: 200
     }
@@ -44,24 +31,28 @@ const menuItems = [
 
 export function Dashboard (){
     const [ selectedNameDishes, setselectedNameDishes ] = useState([])
-    const [ dishesId, setDishesId] = useState()
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const handleSelectDish = (e)=>{
-        const dishId = e.target.getAttribute('id')[0]
         const dishNameSelected = e.target.parentElement.children[1].innerHTML
         const newselectedNameDishes = [...selectedNameDishes]
-        const dishIndex = selectedNameDishes.indexOf(dishNameSelected) 
-        
+        const dishIndex = selectedNameDishes.indexOf(dishNameSelected)
+        const priceIndex = dishNameSelected.indexOf('$')
+        const actualPrice = dishNameSelected.slice(priceIndex+1)
+
         if(dishIndex < 0){
+            const newPrice = totalPrice + parseInt(actualPrice)
+            setTotalPrice(newPrice)
             newselectedNameDishes.push(dishNameSelected)
-            console.log(dishesId)
-            setDishesId(dishId)
+
+            
         }else{
+            const newPrice = totalPrice - parseInt(actualPrice)
+            setTotalPrice(newPrice)
             newselectedNameDishes.splice(dishIndex)
         }
 
         setselectedNameDishes(newselectedNameDishes)
-
     }
 
     return (
@@ -77,11 +68,11 @@ export function Dashboard (){
                         <h5>Orders In Process</h5>
                         <ul className="order-in-process-list">
                             <h6 className="restaurant-order-title">Casa Real · <span>Restaurant</span></h6>
-                            {orderInProcess.map((el, i)=>{
+                            {selectedNameDishes.map((el)=>{
                                 return(
-                                    <li key={i} className="order-in-process-item">
+                                    <li key={el.id} className="order-in-process-item">
                                         <p><b>Dish name:</b> {el.name}</p>
-                                        <p><b>Status:</b> {el.status}</p>
+                                        <p><b>Status:</b> Pending</p>
                                     </li>
                                 )
                             })}
@@ -97,7 +88,7 @@ export function Dashboard (){
                                 <h5>Place:</h5>
                                 
                                 <select name="restaurant" id="select-restaurant-order">
-                                    <option value="actual value 1">Display Text 1</option>
+                                    <option value="actual value 1">Restaurant Casa Real</option>
                                     <option value="actual value 2">Display Text 2</option>
                                     <option value="actual value 3">Display Text 3</option>
                                 </select>
@@ -110,8 +101,9 @@ export function Dashboard (){
                                         return(
                                             <li key={el.id}>
                                                 <input type="checkbox" name={el.name} id={`${el.id}-${el.name}`} onClick={handleSelectDish} />
-                                                <label htmlFor="dish1" >{`${el.name}`}${`${el.price}`}</label>
-                                            </li>)
+                                                <label htmlFor="dish1" >{`${el.name}`} - ${`${el.price}`}</label>
+                                            </li>
+                                            )
                                     })}
                                     
                                 </ul>
@@ -123,13 +115,13 @@ export function Dashboard (){
                             <ul className="menu-items">
                                 {
                                     selectedNameDishes.map(el=>{
-                                        return (<li key={el}>- {el}</li>)
+                                        return (<li key={el.id}>- {el}</li>)
                                     })
                                 }
                             </ul>
                             <div className="subtotal-dishes">
                                 <b>Subtotal:</b>
-                                <p><b>$</b>123</p>
+                                <p><b>$</b>{totalPrice}</p>
                             </div>
                         </div>
                     </section>
