@@ -190,15 +190,14 @@ input{
 .menu-order-container{
   width: 100%;
   display: flex;
-  border-top: 1px solid #000;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .restaurant-menu{
-  width: 70%;
-  background-color: #00a0af;
+  width: 60%;
   height: 100vh;
   padding: 3rem;
+  border-top: 1px solid #FF9100;
 }
 
 .order-place-selector{
@@ -213,8 +212,10 @@ input{
 }
 
 .restaurant-order{
-  width: 30%;
-  background-color: #FF9100;
+  width: 40%;
+  padding: 3rem;
+  border-top: 1px solid #FF9100;
+  border-left: 1rem solid #FF9100;
 }
 
 .orders-in-process{
@@ -225,9 +226,54 @@ input{
 
 .orders-in-process li{
   list-style: none;
+  line-height: 4rem;
 }
 
 .order-in-process-item{
-  border-block: 1px solid #00a0af;
-  padding-left: 1rem; 
+  border-top: 1px solid #00a0af;
+  padding-left: 2rem;
+  padding-block: 2rem;
+  font-size: 2rem;
+}
+
+.restaurant-order-title span{
+  color: #00a0af;
+}
+
+.menu-container h3{
+  margin-block: 3rem;
+
+}
+
+.menu-items li{
+  display: flex;
+  padding-bottom: 3rem;
+  padding-left: 4rem;
+  list-style: none;
+  gap: 2rem;
+}
+
+.menu-items li input{
+  color: #00a0af;
+  width: 2rem;
+  cursor: pointer;
+  accent-color: #00a0af;
+}
+
+.dollar-sign{
+  color: #FF9100;
+  font-weight: bold;
+}
+
+.subtotal-dishes{
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 2px solid #00a0af;
+  margin-top: 1rem;
+}
+
+.subtotal-dishes p b{
+  color: #FF9100;
 }

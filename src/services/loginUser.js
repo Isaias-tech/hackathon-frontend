@@ -4,7 +4,7 @@ export async function loginUser (data){
     formData.append('password', data.password);
 
     console.log(formData)
-    const res = await fetch('https://hackathon.voiceteamcall.com?token=dGVhbTA3OjU0eDM2ZDNvcg==', {body: formData, mode: 'no-cors', method: 'POST'})
+    const res = await fetch('https://hackathon.voiceteamcall.com?token=dGVhbTA3OjU0eDM2ZDNvcg==', { body: formData, method: 'POST' })
     const json = await res.json()
     console.log(json)
     return json
